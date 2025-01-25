@@ -5,71 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/item.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+    <script src="../js/item.js" ></script>
     <title>Item Page</title>
-    <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 71px;
-    }
-    
-    .main-container {
-        max-width: 842px;
-        height: 551px;
-        margin: auto;
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-    
-    }
-    
-    .image-container {
-        text-align: center;
-        padding: 20px;
-        height:230px;
-        
-    }
-    
-    .image-container img {
-        max-width: 100%;
-        height: 235px;
-        border-radius: 8px;
-    }
-    
-    .text-container {
-        padding: 19px 55px;
-        text-align: left;
-        height: 299px;
-    }
-    
-    .text-container p {
-        margin: 0 0 20px;
-        
-    }
-    
-    .claim-button {
-        background-color: #28a745;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        display: block; /* Make the button a block element */
-        margin: 20px auto; /* Center the button horizontally */
-    }
-    
-    .claim-button:hover {
-        background-color: #218838;
-    }
-    </style>
 </head>
 <body>
     <div class="main-container" >
         <div class="image-container" id="img-container">
-           <img src="loc.jpg" id="item-img">
+           <img src="../elements/loc.jpg" id="item-img">
         </div>
         <div class="text-container" id="txt-container">
             <p id ="item-name">ITEM NAME :</p>
@@ -81,78 +23,5 @@
             <button class="claim-button">Claim</button>
         </div>
     </div>
-    
-    <script>
-   
-
-      var url_string = window.location.href
-      var addressUrl = new URL(url_string);
-      var cardno = parseInt(addressUrl.searchParams.get("cardno"));
-      console.log("Cardno:", cardno);
-
-     
-
-      const API_KEY = 'AIzaSyBPsZJstA4soxiFjDSwtblKJOvObCgEkmg';
-      const clientId = '183058898586-ld3n87r7erfmj104c1a41c4ng625hsjv.apps.googleusercontent.com'
-      const SHEET_ID = '1Ccq3GMQp1i3rrO4di5CnsklPqqq0T7FCl4mZta2Pjuk';
-      const RANGE = 'Item List';
-
-      const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`;
-
-      var itemslist = [];
-
-      fetch(url)
-         .then(response => response.json())
-         .then(data => {
-
-            itemslist = data.values;
-            console.log("sheetData = ", itemslist);
-            
-            console.log("Cardno:", cardno);
-
-
-            var image = itemslist[cardno][6];
-            var  itemname= itemslist[cardno][1];
-            var foundlocation = itemslist[cardno][2];
-            var features = itemslist[cardno][4];
-            var date = itemslist[cardno][3];
-            var contactnumber = itemslist[cardno][5];
-            
-
-            console.log("Name:", itemname);
-
-            if (typeof image === 'undefined'){
-               image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfaPyeDyTpc2U7lR96etWzLQU5s77awUPs1Zt17g8LwWLs9vzTmIxlgYHLdpDYRK9Mxj8&amp;usqp=CAU";
-              }else{
-               var params = new URLSearchParams(new URL(image).search);
-               var id = params.get("id"); 
-                image = `https://lh3.googleusercontent.com/d/${id}=w1024?authuser=0`;
-                
-              }     
-              $("#item-name").html(`<p id ="item-name">ITEM NAME :${itemname}</p>`);
-             
-              $("#item-location").html( `<p id ="item-location">FOUND LOCATION :${foundlocation}</p>`);
-              $("#item-date").html(`<p id ="item-date">DATE :${date}</p>`);
-              
-              $("#contact-number").html(`<p id = "contact-number">CONTACT NUMBER :${contactnumber}</p>`);
-              $("#item-features").html( `<p id = "item-features">FEATURES :${features}</p>`) ;
-              $("#item-img").attr("src",image);  
-        }
-            
-          
-         )
-         .catch(error => console.error('Error fetching data:', error));
-
-         $(".claim-button").on('click',function(){
-            alert("Claimed");
-         })
-         
-        
-        
-      
-        
-    </script>
-
-
 </body>
 </html>

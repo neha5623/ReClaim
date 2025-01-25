@@ -1,13 +1,21 @@
-body {
-    font-family: Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@font-face {
+    font-family: "apricot"; 
+    src: url("../project/apricot.woff") format("woff"); 
+    font-weight: normal; 
+    font-style: normal; 
+  }
+  body {
+    font-family:'Rubik';
     margin: 0;
     padding: 20px;
-    background: url('../project/brownn.jpg') no-repeat center center/cover;
-    background-color: #f4f4f4;
+    
+    background-color:  rgb(35, 38, 62);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
 }
 
 .container {
@@ -114,7 +122,7 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-
+    margin-left: 65px;
 }
 
 .search-input {
@@ -129,24 +137,10 @@ body {
 }
 
 .search-input:focus {
-    border-color: #5f2a17;
+    border:solid 5px;
+    border-color: #003479;
 }
 
-.search-button {
-    background-color: #5f2a17;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    padding: 12px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    outline: none;
-    transition: background-color 0.3s ease;
-}
-
-.search-button:hover {
-    background-color: #402222;
-}
 
 .content {
     margin-top: 80px;

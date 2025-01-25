@@ -31,7 +31,7 @@ fetch(url)
                 <img src="${photo}" alt="Item 1">
                 <div class="name">${name}</div>
                 <div class="location">
-                    <img src="loc.jpg" alt="Location Icon">${locationn}
+                    <img src="../elements/loc.jpg" alt="Location Icon">${locationn}
                 </div>
             </div>`;
 
