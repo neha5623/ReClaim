@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Item List</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Horizontal Scrolling Cards</title>
@@ -157,6 +159,7 @@
     </style>
 </head>
 <body>
+    
     <div class="search-container">
         <div class="search-box">
           <input type="text" class="search-input" placeholder="Search Item">
@@ -214,6 +217,51 @@
     </div>
 
     <script>
+
+        const API_KEY = 'AIzaSyBPsZJstA4soxiFjDSwtblKJOvObCgEkmg';
+        const clientId = '183058898586-ld3n87r7erfmj104c1a41c4ng625hsjv.apps.googleusercontent.com'
+        const SHEET_ID = '1Ccq3GMQp1i3rrO4di5CnsklPqqq0T7FCl4mZta2Pjuk';
+        const RANGE = 'Item List';
+  
+        const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`;
+  
+        var itemslist = [];
+  
+        fetch(url)
+           .then(response => response.json())
+           .then(data => {
+              const itemslist = data.values;
+              console.log("sheetData = ", itemslist);
+  
+              for(i=1;i<itemslist.length;i++){
+  
+              
+                var name = itemslist[i][1];
+                var locationn = itemslist[i][2];
+                var photo = itemslist[i][6];
+  
+                if (typeof photo === 'undefined'){
+                photo = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfaPyeDyTpc2U7lR96etWzLQU5s77awUPs1Zt17g8LwWLs9vzTmIxlgYHLdpDYRK9Mxj8&amp;usqp=CAU";
+                }else{
+                 var params = new URLSearchParams(new URL(photo).search);
+                 var id = params.get("id"); 
+                 photo = `https://lh3.googleusercontent.com/d/${id}=w1024?authuser=0`;
+                }     
+                 var itemcard = `<div class="card">
+                <img src="${photo}" alt="Item 1">
+                <div class="name">${name}</div>
+                <div class="location">
+                    <img src="loc.jpg" alt="Location Icon">${locationn}
+                </div>
+
+            </div>`
+                
+               
+                $("#cardContainer").append(itemcard);
+              }
+  
+           })
+           .catch(error => console.error('Error fetching data:', error));
         document.getElementById('scrollLeft').addEventListener('click', function() {
             const container = document.getElementById('cardContainer');
             container.scrollBy({
