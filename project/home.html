@@ -252,7 +252,9 @@
                 <div class="name">${name}</div>
                 <div class="location">
                     <img src="loc.jpg" alt="Location Icon">${locationn}
+                    
                 </div>
+                <button class="mark-solved">Mark as Solved</button>
 
             </div>`
                 
@@ -279,6 +281,13 @@
                 behavior: 'smooth'
             });
         });
+        $(document).ready(function () {
+    $('.mark-solved').on('click', function () {
+        $(this).parent().css('text-decoration', 'line-through');
+        $(this).text('Solved').prop('disabled', true);
+    });
+});
+
     </script>
 </body>
 </html>
