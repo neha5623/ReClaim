@@ -146,3 +146,23 @@
     margin-top: 80px;
     padding: 20px;
 }
+.image-link {
+    position: fixed; /* Use absolute for container-relative positioning */
+    bottom: 10px;
+    left: 10px;
+    z-index: 1000; /* Ensure it stays above other elements if needed */
+  }
+  
+  .image-link img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .image-link img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+  
