@@ -22,7 +22,13 @@ body {
     height:230px;
     
 }
-
+#arrowbck:hover{
+    background-color: black;
+    border-radius: 10px;
+}
+#arrowbck:active{
+    transform: scale(1.1);
+}
 .image-container img {
     max-width: 100%;
     height: 235px;

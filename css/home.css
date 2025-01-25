@@ -1,1 +1,7 @@
-/*home*/
+#arrowbck:hover{
+    background-color: black;
+    border-radius: 10px;
+}
+#arrowbck:active{
+    transform: scale(1.1);
+}
