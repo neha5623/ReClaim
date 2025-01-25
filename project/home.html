@@ -1,1 +1,30 @@
-/*home*/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Item List</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Scrolling Cards</title>
+    <link rel="stylesheet" href="../css/home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../js/home.js" defer></script>
+
+</head>
+<body>
+    <div class="search-container">
+        <div>
+            <div class="heading">Reclaim</div>
+            <div class="search-box">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search Item">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <button id="scrollLeft" class="scroll-button">←</button>
+        <div class="card-container" id="cardContainer"></div>
+        <button id="scrollRight" class="scroll-button">→</button>
+    </div>
+
+</body>
+</html>
