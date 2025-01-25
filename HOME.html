@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Scrolling Cards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: url('brownn.jpg') no-repeat center center/cover;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center; /* Center the container horizontally */
+            align-items: center; /* Center the container vertically */
+            height: 100vh; /* Full height of the viewport */
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        .card .location img {
+            width: 20px; /* Adjust the size of the logo */
+            height: 20px;
+        }
+
+
+        .card-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            width: 80%;
+            padding: 20px;
+            justify-content: center; /* Center the cards within the container */
+        }
+
+        .card {
+            min-width: 250px; /* Increased width */
+            height: 400px; /* Increased height */
+            background-color: rgba(242, 244, 240, 0.8); /* Semi-transparent background */
+            color: #333;
+            margin: 0 15px; /* Increased margin for spacing */
+            display: flex;
+            flex-direction: column; /* Stack image and text vertically */
+            justify-content: flex-start; /* Align content at the top */
+            align-items: center;
+            border-radius: 11px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Added shadow effect */
+            font-size: 20px; /* Increased font size */
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s; /* Animation for hover effect */
+        }
+
+        .card:hover {
+            transform: translateY(-10px); /* Lift the card on hover */
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4); /* Intensify shadow on hover */
+        }
+
+        .card img {
+            width: 100%; /* Fit the card width */
+            height: 250px; /* Fixed height for the image */
+            object-fit: cover; /* Crop image to fit */
+            border-top-left-radius: 11px;
+            border-top-right-radius: 11px;
+        }
+        
+      
+
+        .card .name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .card .location {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+
+        .scroll-button {
+            background-color: #e0e8f0;
+            color: white;
+            border: none;
+            padding: 10px 15px; /* Adjusted padding */
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 10px;
+            font-size: 16px; /* Increased font size */
+        }
+
+        .scroll-button:hover {
+            background-color: #0e1013;
+        }
+       
+        .search-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-width: 100%;
+            background-color: white;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+          }
+      
+          .search-box {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Space between input and button */
+          }
+      
+          .search-input {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px 16px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 30px;
+            outline: none;
+            transition: border-color 0.3s ease;
+            margin-left: 20px; /* Moves the input slightly to the right */
+          }
+      
+          .search-input:focus {
+            border-color: #5f2a17;
+          }
+      
+          .search-button {
+            background-color: #5f2a17;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            outline: none;
+            transition: background-color 0.3s ease;
+          }
+      
+          .search-button:hover {
+            background-color: #402222;
+          }
+       
+       
+          /* For demonstration purposes */
+          .content {
+            margin-top: 80px; /* Add spacing to prevent content overlap */
+            padding: 20px;}
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <div class="search-box">
+          <input type="text" class="search-input" placeholder="Search Item">
+          <button class="search-button">Search</button>
+        </div>
+      </div>
+    <div class="container">
+        <button id="scrollLeft" class="scroll-button">←</button>
+        <div class="card-container" id="cardContainer">
+            <div class="card">
+                <img src="watch.png" alt="Item 1">
+                <div class="name">Item 1</div>
+                <div class="location">
+                    <img src="loc.jpg" alt="Location Icon">APJ Hall</div>
+
+            </div>
+            <div class="card">
+                <img src="watch.png" alt="Item 2">
+                <div class="name">Item 2</div>
+                <div class="location">
+                    <img src="loc.jpg" alt="Location Icon">APJ Hall</div>
+            </div>
+            <div class="card">
+                <img src="watch.png" alt="Item 3">
+                <div class="name">Item 3</div>
+                <div class="location">
+                    <img src="loc.jpg" alt="Location Icon">APJ Hall</div>
+            </div>
+            <div class="card">
+                <img src="watch.png" alt="Item 4">
+                <div class="name">Item 4</div>
+                <div class="location">
+                    <img src="loc.jpg" alt="Location Icon">APJ Hall</div>
+            </div>
+            <div class="card">
+                <img src="watch.png" alt="Item 5">
+                <div class="name">Item 5</div>
+                <div class="location">
+                    <img src="loc.jpg" alt="Location Icon">APJ Hall</div>
+            </div>
+            <div class="card">
+                <img src="watch.png" alt="Item 6">
+                <div class="name">Item 6</div>
+                <div class="location">
+                    <img src="loc.jpg" alt="Location Icon">APJ Hall</div>
+            </div>
+            <div class="card">
+                <img src="watch.png" alt="Item 7">
+                <div class="name">Item 7</div>
+                <div class="location">
+                    <img src="loc.jpg" alt="Location Icon">APJ Hall</div>
+            </div>
+        </div>
+        <button id="scrollRight" class="scroll-button">→</button>
+    </div>
+
+    <script>
+        document.getElementById('scrollLeft').addEventListener('click', function() {
+            const container = document.getElementById('cardContainer');
+            container.scrollBy({
+                top: 0,
+                left: -250, // Adjust this value based on card width
+                behavior: 'smooth'
+            });
+        });
+
+        document.getElementById('scrollRight').addEventListener('click', function() {
+            const container = document.getElementById('cardContainer');
+            container.scrollBy({
+                top: 0,
+                left: 250, // Adjust this value based on card width
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
