@@ -1,1 +1,53 @@
-/*index*/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReClaim!</title>
+    <link href="index.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="findme.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div class="navbar">
+        <h1>ReClaim!</h1>
+    </div>
+    <div class="main">
+        <div id="box1" class="box">
+            <h3>Lost something?</h3>
+            <a href="home.html" target="_self">
+                <button id="btn1">
+                    <img src="boxclosed.png" id="lost">
+                </button>
+            </a>
+        </div>
+        <div id="box2" class="box">
+            <h3>Found something?</h3>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdwwFhCHyamlo85Gvahv6sMTjsIqurDBVRX2tPzuta0pyojzQ/viewform?usp=header" target="_self">
+                <button>
+                    <img src="boxopen.png" id="found">
+                </button>
+            </a>
+        </div>
+    </div>
+</body>
+<script>
+    $(document).ready(function () {
+    const imgelmnt = document.getElementById("lost");
+    $(imgelmnt).hover(
+        function () {
+            if (imgelmnt.src.includes("boxclosed.png")) {
+                imgelmnt.src = "boxopen.png";
+            }
+        },
+        function () {
+            if (imgelmnt.src.includes("boxopen.png")) {
+                imgelmnt.src = "boxclosed.png";
+            }
+        }
+    );
+});
+    
+</script>
+</html>

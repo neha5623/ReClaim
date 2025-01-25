@@ -1,1 +1,46 @@
-/*index*/
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+.navbar{
+    background-color: lavender;
+    height: 30vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main{
+    display: grid;
+    height: 70vh;
+    width:100vw ;
+    grid-template-rows: 70vh ;
+    grid-template-columns: 1fr 1fr;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+#box1{
+    background-color: rgb(255, 206, 206);
+}
+#box2{
+    background-color: rgb(171, 255, 150);
+}
+button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+#lost{
+    transition: opacity 0.3s ease-in-out;
+   
+}
