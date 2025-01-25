@@ -3,12 +3,12 @@ $(document).ready(function () {
     $(imgelmnt).hover(
         function () {
             if (imgelmnt.src.includes("boxclosed.png")) {
-                imgelmnt.src = "boxopen.png";
+                imgelmnt.src = "../elements/boxopen.png";
             }
         },
         function () {
             if (imgelmnt.src.includes("boxopen.png")) {
-                imgelmnt.src = "boxclosed.png";
+                imgelmnt.src = "../elements/boxclosed.png";
             }
         }
     );
