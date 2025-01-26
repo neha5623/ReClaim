@@ -55,12 +55,13 @@ fetch(url)
     
    )
    .catch(error => console.error('Error fetching data:', error));
-
+   $(document).ready(function () {
    $(".claim-button").on('click',function(){
       alert("Claimed");
+      console.log("hey");
    })
    
-  
+});
   
 
   

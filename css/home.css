@@ -116,15 +116,20 @@
 }
 
 .heading {
-    font-size: 24px;
+    font-size: 50px;
     font-weight: bold;
     color: #ffffff;
     margin-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: "apricot";
 }
+#logoimg{
+    height: 50px;
+    
 
+}
 .search-box {
     display: flex;
     align-items: center;

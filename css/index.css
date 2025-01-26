@@ -62,9 +62,9 @@ button{
 #lost{
     transition: opacity 0.3s ease-in-out;
     height:200px;
-    width: 200px;
+    
 }
 #found{
     height:200px;
-    width: 200px;
+    
 }

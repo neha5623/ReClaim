@@ -1,8 +1,9 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: rgb(35,38,62);
     margin: 0;
     padding: 71px;
+    overflow: hidden;
 }
 
 .main-container {
@@ -23,7 +24,7 @@ body {
     
 }
 #arrowbck:hover{
-    background-color: black;
+    background-color: rgb(160, 149, 149);
     border-radius: 10px;
 }
 #arrowbck:active{
@@ -60,4 +61,13 @@ body {
 
 .claim-button:hover {
     background-color: #218838;
+}
+#logoimg{
+    height: 50px;
+   
+   
+
+}
+.heading{
+    margin-top: -50px;
 }
